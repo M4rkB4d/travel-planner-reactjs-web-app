@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { loginApi } from '../api/authApi';
-import { useAuth } from '../hooks/useAuth';
+import { useAuthHook } from '../hooks/useAuthHook';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const { login } = useAuth();
+  const { login } = useAuthHook();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {

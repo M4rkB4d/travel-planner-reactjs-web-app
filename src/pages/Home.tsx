@@ -1,7 +1,7 @@
-import { useAuth } from "../hooks/useAuth";
+import { useAuthHook } from "../hooks/useAuthHook";
 
 const Home = () => {
-  const { logout } = useAuth();
+  const { logout } = useAuthHook();
 
   return (
     <div>
