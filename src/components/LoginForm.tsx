@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { loginApi } from '../api/authApi';
-import { useAuthHook } from '../hooks/useAuthHook';
+import { loginApi } from '../api/AuthApi';
+import { useAuthHook } from '../hooks/UseAuthHook';
 import { useNavigate } from 'react-router-dom';
+import { LoginRequest } from '../types/payload/request/AuthRequestType';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -13,7 +14,10 @@ const LoginForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const data = await loginApi(email, password);  // Get login data
+
+      const request: LoginRequest = { email, password };
+
+      const data = await loginApi(request);  // Get login data
       login(data.accessToken);  // Store token in context
       navigate('/');  // Redirect to home
     } catch (err) {
