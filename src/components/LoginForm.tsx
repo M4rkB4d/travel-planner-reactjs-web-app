@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { loginApi } from '../api/AuthApi';
-import { useAuthHook } from '../hooks/UseAuthHook';
+import { useAuthHook } from '../hooks/AuthHook';
 import { useNavigate } from 'react-router-dom';
 import { LoginRequest } from '../types/payload/request/AuthRequestType';
 
