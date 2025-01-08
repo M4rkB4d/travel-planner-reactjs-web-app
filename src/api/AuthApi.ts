@@ -1,5 +1,5 @@
-import { LoginRequest } from '../types/payload/request/AuthRequestType';
-import { LoginResponse } from '../types/payload/response/AuthResponseType';
+import { LoginRequest } from './request/AuthRequest';
+import { LoginResponse } from './response/AuthResponse';
 import axios from 'axios';
 
 const API_URL = 'http://localhost:8080/api'; // Replace with your API URL
