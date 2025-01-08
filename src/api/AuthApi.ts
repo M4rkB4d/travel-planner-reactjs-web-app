@@ -6,7 +6,7 @@ const API_URL = 'http://localhost:8080/api'; // Replace with your API URL
 
 export const loginApi = async (request: LoginRequest): Promise<LoginResponse> => {
   try {
-    const response = await axios.post<LoginResponse>(`${API_URL}/auth/login`, { request });
+    const response = await axios.post<LoginResponse>(`${API_URL}/auth/login`, request);
     console.log("Login response:", response.data);  // Log the actual response data
     return response.data;  // Assuming the API returns { accessToken, refreshToken, expiresIn }
   } catch (error: unknown) {
