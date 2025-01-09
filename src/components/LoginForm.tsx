@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { loginApi } from '../api/AuthApi';
 import { useAuthHook } from '../hooks/AuthHook';
 import { useNavigate } from 'react-router-dom';
+import { InputTextField } from './common/Input';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -23,24 +24,37 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <input
+    <form 
+    onSubmit={handleSubmit}
+    className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md"
+    >
+      <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+      <InputTextField
         type="email"
-        placeholder="Email"
+        placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
+        variant="filled"
+        label="Email"
+        errorMessage={error ? 'Invalid email' : ''}
       />
-      <input
+      <InputTextField
         type="password"
-        placeholder="Password"
+        placeholder="Enter your password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
+        variant="filled"
+        label="Password"
+        errorMessage={error ? 'Invalid password' : ''}
       />
-      <button type="submit">Login</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <button
+        type="submit"
+        className="w-full mt-4 bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
+      >
+        Login
+      </button>
     </form>
   );
 };
