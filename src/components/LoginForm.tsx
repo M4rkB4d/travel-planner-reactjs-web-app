@@ -27,26 +27,29 @@ const LoginForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md"
+      className="min-w-full max-w-8 bg-transparent"
     >
-      <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+      <h1 className="text-4xl font-bold text-center">Welcome</h1>
+      <h2 className="text-sm font-bold text-center">Login with Email</h2>
+      <div>
       <InputTextField
         type="email"
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        variant="filled"
+        variant="underlined"
         label="Email"
         errorMessage={error ? "Invalid email" : ""}
       />
+      </div>
       <InputTextField
         type="password"
         placeholder="Enter your password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
-        variant="filled"
+        variant="underlined"
         label="Password"
         errorMessage={error ? "Invalid password" : ""}
       />
