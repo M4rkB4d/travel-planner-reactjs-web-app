@@ -36,7 +36,7 @@ const LoginForm = () => {
       </div>
 
       {/* Input Fields */}
-      <div className="space-y-0 w-full md:w-96">
+      <div className="space-y-0 w-full md:w-80">
         {/* Email Input */}
         <InputTextField
           type="email"
