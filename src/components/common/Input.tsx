@@ -3,6 +3,7 @@ import {
   TextInputFieldProps,
   baseStyle,
   variantStyles,
+  sizeStyles,
 } from "./props/InputProps";
 
 export const InputTextField: React.FC<TextInputFieldProps> = ({
@@ -12,6 +13,7 @@ export const InputTextField: React.FC<TextInputFieldProps> = ({
   onChange,
   required = false,
   variant = "default",
+  size = "medium", // Default to medium size
   label,
   errorMessage,
   successMessage,
@@ -54,6 +56,7 @@ export const InputTextField: React.FC<TextInputFieldProps> = ({
           aria-describedby={isError ? "error-message" : undefined}
           className={clsx(
             baseStyle,
+            sizeStyles[size], // Add size-specific styles
             variantStyles[variant],
             iconLeft && "pl-10", // Add space if iconLeft exists
             iconRight && "pr-10", // Add space if iconRight exists
