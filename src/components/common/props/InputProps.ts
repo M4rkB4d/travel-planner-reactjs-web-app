@@ -11,8 +11,16 @@ export type InputFieldVariant =
   | "success"
   | "warning";
 
+export type InputFieldSize = "small" | "medium" | "large";
+
 export const baseStyle =
-  "w-full px-3 py-2 text-sm focus:outline-none";
+  "w-full text-sm focus:outline-none";
+
+export const sizeStyles: Record<InputFieldSize, string> = {
+  small: "px-2 py-1 text-sm", // Compact size
+  medium: "px-3 py-2 text-base", // Default size
+  large: "px-4 py-3 text-lg", // Larger size
+};
 
 export const variantStyles: Record<InputFieldVariant, string> = {
   default: "border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400",
@@ -33,6 +41,7 @@ export interface TextInputFieldProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
   variant?: InputFieldVariant; // Style variant
+  size?: InputFieldSize; // Input size
   label?: string; // Optional label
   errorMessage?: string; // Display error messages
   successMessage?: string; // Display success messages
